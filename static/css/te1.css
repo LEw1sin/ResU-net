@@ -1,0 +1,97 @@
+/* 大容器的样式 */
+.container{
+	/* position(定位) relative 相对定位
+	让元素相对自己原来的位置，进行位置调整
+	相对定位不脱标，原本所占的空间不会改变，只不过影子出去了，可以到处飘。*/
+	position: relative;
+	/*  overflow 属性用于控制内容溢出元素框时显示的方式
+		hidden	内容会被修剪，并且其余内容是不可见的*/
+	overflow: hidden;
+}
+
+/* 轮播图部分的样式 */
+.slider{
+	/* 将slider设为弹性盒子（container 和 item 组成，这里的slider相当于弹性容器） */
+	display: flex;
+	/* 计算总宽度  calc()函数用于动态计算*/
+	width: calc(100% *5);
+	/* transition(过渡)指的是css的某个属性值如何平滑的改变 即 动效
+	   transition：[属性名] [持续时间] [速度曲线] [延迟时间]
+	   速度曲线 ease-in-out：规定以慢速开始和结束的过渡效果*/
+	/*transition: 0.5s ease-in-out;*/
+}
+/* 弹性子元素 */
+.slider img{
+	width: 100%;
+}
+
+/* 缩略图样式 */
+.thumbnails{
+	/* 设为flex-container */
+	display: flex;
+	/* justify-content 用来用于设置或检索弹性盒子元素在主轴（横轴）方向上的对齐方式
+	 这里是弹性子元素是指装缩略图的div盒子*/
+	justify-content: space-between;
+	/* 距轮播图部分的距离相差10像素 */
+	margin-top: 10px;
+}
+/* 弹性子元素 */
+.thumbnail{
+	/* 继承的父级20%宽度的情况下动态减去了10px */
+	width: calc(20% - 10px);
+	border: 2px solid #fff;
+	/* cursor,鼠标指针放在一个元素边界范围内时所用的光标形状
+	   pointer:一只手*/
+	cursor: pointer;
+	/* filter滤镜属性
+	grayscale(%)灰度 越大越灰
+	brightness(%)明暗*/
+	-webkit-filter: grayscale(90%) brightness(120%);
+}
+.thumbnail img{
+	width: 100%;
+}
+/* 大图对应缩略图样式 */
+.thumbnail.active{
+	border-color: #f00;
+	-webkit-filter:grayscale(0%) brightness(100%);
+}
+
+/* 按钮样式 */
+.controls{
+	/* 绝对定位:绝对定位中，定位依据是定位元素的父级 (绝对定位的元素会脱离文档流)
+	子绝父相（父级元素为container）*/
+	position: absolute;
+	/* 距顶部50% 居中 */
+	top:50%;
+	/* translate()方法，根据左(X轴)和顶部(Y轴)位置给定的参数，从当前元素位置移动。 */
+	transform: translateY(-50%);
+	width: 100%;
+	/* flex-container */
+	display: flex;
+	justify-content: space-between;
+	/* 来设置元素的堆叠顺序或者叫做元素层级，z-index的值越大，元素的层级越高 */
+	z-index: 10;
+}
+.prev-button,.next-button{
+	width: 50px;
+	height: 50px;
+	background-color: #fff;
+	/* 设置圆角 */
+	border-radius: 50%;
+	/* 父级弹性容器 */
+	display: flex;
+	justify-content: space-between;
+	/* align-items 定义弹性子项在弹性容器的对齐方式 */
+	align-items: center;
+	cursor: pointer;
+}
+/* 鼠标移到按钮上时背景变色 */
+.prev-button:hover,.next-button:hover{
+	background-color: #f00;
+}
+.prev-button i,.next-button i{
+	color: #f00;
+}
+
+

@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <title>Segementation Website</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/index.css">
+  </head>
+  <body>
+    <header id="header">
+      <a href="#" class="logo">SiChuan University</a>
+      <ul class="navigation">
+       <div class="banner_bottom_in">
+        <form
+          id="uploadForm"
+          action=""
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          <input hidden type="file" id="zip" name="file" class="hidden"/>
+          <button
+            type="button"
+            name="file"
+            class="btn btn-primary"
+            onclick="document.getElementById('zip').click()"
+          >
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            Input Zip
+          </button>
+
+          <button type="button" class="btn btn-primary" onclick="uploadFile()">
+            <span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span> 
+            Submit
+          </button>
+    
+        <!-- 加载提示，初始时不显示 -->
+        <div id="loadingBox" style="display: none;">上传中...</div>
+
+        </form>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    function uploadFile() {
+        var formData = new FormData(document.getElementById('uploadForm'));
+        $.ajax({
+            url: '/', // 替换为您的上传处理 URL
+            type: 'POST',
+            data: formData,
+            processData: false,  // 告诉 jQuery 不要处理发送的数据
+            contentType: false,  // 告诉 jQuery 不要设置内容类型头
+            beforeSend: function() {
+                $("#loadingBox").show(); // 显示加载提示
+            },
+            success: function(response) {
+                // 处理成功响应
+                if(response.redirect) {
+                  window.location.href = response.redirect;  // 进行重定向
+              }
+            },
+            complete: function() {
+                $("#loadingBox").hide(); // 隐藏加载提示
+            }
+        });
+    }
+</script>
+
+    </div>
+      </ul>
+    </header>
+
+
+
+
+    <section>
+      <img src="../static/images/back.png" id="back">
+    </section>
+    <div class="sec">
+      <h2>心墙——基于残差U-Net构建的心功能评估系统</h2>
+      <p>2024 “华迪杯”·中国大学生计算机设计大赛 </p>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script>
+      gsap.from("#back",{
+        scrollTrigger : {
+          scrub: true
+        },
+        y: 300,
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!-- loading.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loading...</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div>请稍等，预测需要约一分钟</div>
+    <script>
+        $(document).ready(function() {
+            checkStatus();
+        });
+
+        function checkStatus() {
+            var foldername = "{{ foldername }}";  // 从 Flask 获取 foldername
+            $.ajax({
+                url: '/check_status/' + foldername,
+                success: function(response) {
+                    if(response.status === 'done') {
+                        window.location.href = '/about/%3F' + foldername;
+                    } else if(response.status === 'error') {
+                        alert('Error processing file');
+                    } else {
+                        setTimeout(checkStatus, 2000); // 每2秒检查一次
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap');
+*
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.header 
+{
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10000;
+  grid-area: header;
+}
+.header .logo 
+{
+  color: white;
+  font-weight: 700;
+  font-size: 2em;
+  text-decoration: none;
+}
+
+
+
+button {
+  margin: 10px;
+}
+
+
+.body {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  color: white;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto 3fr 2fr auto;;
+  grid-template-areas:
+    "header header"
+    "section1 section2"
+    "section3 section4"
+    "footer footer";
+    gap: 10px;
+  background-image: url("../../project(1)/project/static/images/backs.png"); /* 替换 'your-background-image.jpg' 为你的图片路径 */
+  background-size: cover;
+  background-position: center;
+}
+
+.header {
+  grid-area: header;
+  background-color: rgb(42, 41, 41);
+  padding: 20px;
+}
+
+.section {
+  padding: 30px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid white; /* 添加白色边框 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.button-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.button-container button {
+  margin: 0 10px;
+  padding: 10px 20px; /* 调整按钮内边距，增加按钮大小 */
+  border: 2px solid #808080; /* 灰色边框 */
+  background-color: #555555; /* 灰色背景 */
+  color: white; /* 白色文字 */
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s; /* 添加过渡效果 */
+}
+
+.button-container button:hover {
+  background-color: #333333; /* 悬停时更深的灰色背景 */
+  color: #ffffff; /* 悬停时更明亮的文字颜色 */
+}
+
+.image-container img{
+  width: 224px;
+  height: 180px;
+  margin-top: 20px;
+}
+
+#section1 {
+    grid-area: section1;
+    
+  }
+
+#section2 {
+  grid-area: section2;
+  
+}
+
+#section3 {
+  grid-area: section3;
+  
+}
+
+#section4 {
+  grid-area: section4;
+  
+}
+
+.footer {
+  grid-area: footer;
+  background-color: rgba(0, 0, 0, 0.7); /* 半透明黑色背景，可以根据需要调整透明度 */
+  text-align: center;
+  padding: 20px;
+}
+
+nav {
+  display: flex;
+  justify-content: right;
+  background-color: rgba(0, 0, 0, 0.7); /* 半透明黑色背景，可以根据需要调整透明度 */
+  padding: 20px;
+  font-size: 30px
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+}
+
+
+
+  #main {
+    height: 250px;
+    width: 100%;
+  }
+
+  .table-striped{
+    margin-top:20px;
+    -left:120px;
+    width:auto;
+    text-align: center;
+ }
+
+ .btn-sm{
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color:#fff;
+    background-color: rgb(103, 125, 129);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;;
+
+ }
+ 
+ .btn-sm{
+    background-color: #073847;
+    }
+.btn-sm{
+    background-color: #083542;
+    box-shadow: 0 5px #666;
+    transform:translateY(4px);
+    }
+   
+.btn-xs{
+    display: inline-block;
+    border-radius: 20px;
+    background-color: #0c4757;
+    border: none;
+    color: #ffff;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 18px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    vertical-align: middle;
+
+}
+
+ .overview {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.web-height{
+    height:1600px;
+    }
+   .image-container {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       height: 80vh;
+   }
+   .image-container img {
+       max-height: 100%;
+       max-width: 100%;
+   }
+
+   .overview ul {
+    list-style-type: none;
+    padding: 0;
+
+}
+.overview li {
+    cursor: pointer;
+
+}
+
+
+td {
+    height: 40px;
+    font-size: 24px;
+    vertical-align: bottom;
+}    
